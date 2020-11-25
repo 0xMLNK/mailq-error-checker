@@ -1,31 +1,24 @@
 # mailqchecker
 
-Skript um zu Errors in mailq zu prüfen. 
+Script to check errors in mailq.
 
-Um Trigger list anzupassen, einfach in error_trigers file trigger als newline 
-hinzufügen. 
-
+To adjust the trigger list, just add trigger as newline in error_trigers file. 
 ```
-root@vm-mail-gw:~/skripten/mailqchecker# cat error_triggers
+root@mail:~/mailqchecker# cat error_triggers
 certificate
 TLS
 tls
 SOME NEW TRIGGER HIER
 ```
-kann auch Satz sein. newline = newtrigger
-
-
-um folgende skript in cron hinzufügen.
-
+to add the following script in cron.
 ```
 vim /etc/crontab
 ```
-und am Ende 
+and add this line to the end of crontab
 ```
-*/10 * * * *    python3 /root/skripten/mailqchecker/mailqcheck.py
+*/10 * * * *    python3 /PATH TO SCRIPT/mailqchecker/mailqcheck.py
 ```
-hinzufügen.
-danach cron reloaden.
+reload cron.
 ```
 /etc/init.de/cron reload
 ```
